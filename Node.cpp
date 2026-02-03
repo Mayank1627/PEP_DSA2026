@@ -37,6 +37,26 @@ void insertAtTail(Node* &head, int val){
 
 }
 
+void insertAtIndex(Node* &head, int idx, int val){
+
+    Node* node = new Node(val);
+
+    if(idx == 0){
+        node->next = head;
+        head = node;
+        return;
+    }
+
+    Node* t = head;
+
+    idx--;
+    while(idx--)t = t->next;
+
+    node->next = t->next;
+    t->next = node;
+
+}
+
 
 int main(){
 
@@ -49,7 +69,13 @@ int main(){
 
     insertAtTail(a,10);
 
-    Node* t = a;
+   
+    
+
+    insertAtIndex(a,2,100);
+    insertAtIndex(a,0,1000);
+
+     Node* t = a;
     while(t){
         cout<<t->val<<" ";
         t = t->next;
