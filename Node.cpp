@@ -16,6 +16,27 @@ public:
     }
 };
 
+void insertAtTail(Node* &head, int val){
+
+    if(!head) {
+     Node* temp =  new Node(val);
+     return;
+    }
+
+
+    Node* t = head;
+
+    while(t->next != NULL){
+        t = t->next;
+    }
+
+    Node* x = new Node(val);
+    t->next = x;
+    return;
+
+
+}
+
 
 int main(){
 
@@ -25,4 +46,12 @@ int main(){
 
     a->next = b;
     b->next = c;
+
+    insertAtTail(a,10);
+
+    Node* t = a;
+    while(t){
+        cout<<t->val<<" ";
+        t = t->next;
+    }
 }
